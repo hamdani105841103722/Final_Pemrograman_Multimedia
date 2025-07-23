@@ -1,0 +1,277 @@
+/* Definisikan font kustom kamu di bagian paling atas */
+@font-face {
+  font-family: 'EB Garamond Italic';
+  src: url('fonts/EBGaramond-Italic.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Import Font dari Google Fonts untuk teks lainnya */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset dan Pengaturan Dasar */
+:root {
+    --primary-color: #0077b6; /* Biru Laut */
+    --secondary-color: #00b4d8;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --white-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+/* Navigasi */
+header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover, .nav-active {
+    color: var(--primary-color);
+}
+
+#hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image/baground.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-family: 'EB Garamond Italic', serif;
+    font-weight: normal;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--secondary-color);
+}
+
+/* Konten Umum */
+.content-section {
+    padding: 4rem 10%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-section:nth-of-type(odd) {
+    background: var(--light-color);
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* Galeri */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* CSS BARU UNTUK FOTO BERSAMA */
+.foto-bersama-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Jarak antara dua foto */
+    flex-wrap: wrap; /* Agar otomatis ke bawah jika layar kecil */
+    margin-top: 2rem;
+}
+
+.foto-bersama-item {
+    max-width: 450px; /* Batas lebar maksimal foto agar tidak terlalu besar */
+    flex: 1; /* Agar kedua foto fleksibel */
+}
+
+.foto-bersama-item img {
+    width: 100%;
+    border-radius: 8px; /* Membuat sudut gambar melengkung */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Memberi bayangan agar lebih hidup */
+}
+
+/* Video */
+.video-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.video-wrapper {
+    width: 100%;
+    max-width: 560px;
+}
+
+.video-wrapper h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Tim Produksi */
+.team-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.team-row .team-member {
+    flex-basis: 220px;
+    flex-grow: 0;
+}
+
+.team-member {
+    background: var(--white-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid var(--primary-color);
+}
+
+.team-member h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    nav ul {
+        display: none; /* Sembunyikan navigasi di mobile untuk simplisitas */
+    }
+    .content-section {
+        padding: 3rem 5%;
+    }
+    .video-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
