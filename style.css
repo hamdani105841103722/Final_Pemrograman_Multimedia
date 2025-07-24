@@ -1,7 +1,8 @@
 /* Definisikan font kustom kamu di bagian paling atas */
 @font-face {
   font-family: 'EB Garamond Italic';
-  src: url('fonts/EBGaramond-Italic.ttf') format('truetype'); 
+  /* Menggunakan path relatif yang benar */
+  src: url('fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype'); 
   font-weight: normal;
   font-style: italic;
 }
@@ -78,6 +79,7 @@ nav ul li a:hover, .nav-active {
 
 #hero {
     height: 100vh;
+    /* Menggunakan nama file background yang benar */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image/baground.png') no-repeat center center/cover;
     display: flex;
     justify-content: center;
